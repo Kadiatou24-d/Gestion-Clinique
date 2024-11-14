@@ -1,0 +1,33 @@
+/* Fixe la hauteur du conteneur pour éviter le mouvement */
+.container {
+    width: 100%; /* Largeur complète de l'élément parent */
+    height: auto; /* Ajustez selon le contenu, ou définissez une hauteur fixe si nécessaire */
+    max-width: 1200px; /* Limite la largeur maximale si nécessaire */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 20px; /* Ajoute un padding pour un meilleur aspect visuel */
+    overflow-y: hidden; /* Empêche le défilement vertical du conteneur */
+}
+
+/* Supprime les effets de flex */
+.container, table {
+    display: block;
+}
+
+/* Évite le mouvement en spécifiant des marges fixes */
+.table {
+    margin-top: 1rem;
+    width: 100%; /* Assure que le tableau utilise toute la largeur disponible */
+}
+
+/* Contrôle la hauteur du tableau si vous avez beaucoup de lignes */
+.table tbody {
+    display: block;
+    overflow-y: auto; /* Permet le défilement si le contenu dépasse la hauteur */
+    max-height: 400px; /* Ajustez la hauteur selon vos besoins */
+}
+
+.table thead, .table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}

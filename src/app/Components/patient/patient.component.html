@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h2>Patient </h2>
+  <button mat-raised-button color="primary" (click)="openDialog()">
+    Ajouter un Patient
+  </button>  
+
+  <table class="table mt-4">
+    <thead>
+      <tr>
+  
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>Telephone</th>
+        <th>Sexe</th>
+        <th>Nationalite</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of listePatient">
+        <td>{{p.nom}}</td>
+        <td>{{p.prenom}}</td> 
+        <td>{{p.email}}</td>  
+        <td>{{p.tel}}</td> 
+        <td>{{p.sexe}}</td>   
+        <td>{{p.nationalite}}</td>  
+       
+       
+
+      
+
+
+        <td>
+          <button class="btn btn-warning" >Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

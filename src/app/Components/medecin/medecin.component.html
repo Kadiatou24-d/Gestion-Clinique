@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h2>Médecins</h2>
+  <button mat-raised-button color="primary" (click)="openDialog()">
+    Ajouter un Médecin
+  </button> 
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Nationalité</th>
+        <th>Sexe</th>
+        <th>Téléphone</th> 
+        <th>Spécialité</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of listeMedecin">
+        <td>{{m.nom}}</td>
+        <td>{{m.prenom}}</td>
+        <td>{{m.nationalite}}</td>
+        <td>{{m.sexe}}</td> 
+        <td>{{m.tel}}</td>    
+        <td>{{m.specialite?.nom}}</td> 
+        <td>
+          <button class="btn btn-warning">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+          <!--  <button mat-raised-button color="accent" (click)="editMedecin(m)">Modifier</button>
+          <button mat-raised-button color="warn" (click)="deleteMedecin(m)">Supprimer</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table> 
+</div>

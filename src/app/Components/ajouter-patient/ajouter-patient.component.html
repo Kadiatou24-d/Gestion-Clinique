@@ -1,0 +1,56 @@
+<div class="form-container">
+  <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="nom" placeholder="Entrez le nom" />
+      <mat-error *ngIf="patientForm.get('nom')?.hasError('required')">
+       
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Prénom</mat-label>
+      <input matInput formControlName="prenom" placeholder="Entrez le prénom" />
+      <mat-error *ngIf="patientForm.get('prenom')?.hasError('required')">
+        
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Entrez l'email" />
+      <mat-error *ngIf="patientForm.get('email')?.hasError('required')">
+       
+      </mat-error>
+      <mat-error *ngIf="patientForm.get('email')?.hasError('email')">
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Téléphone</mat-label>
+      <input matInput formControlName="tel" placeholder="Entrez le numéro de téléphone" />
+      <mat-error *ngIf="patientForm.get('tel')?.hasError('required')">
+      </mat-error>
+  
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Sexe</mat-label>
+      <input matInput formControlName="sexe" placeholder="Entrez le sexe" />
+      <mat-error *ngIf="patientForm.get('sexe')?.hasError('required')">
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Nationalité</mat-label>
+    <input matInput formControlName="nationalite" placeholder="Entrez la nationalité" />
+      <mat-error *ngIf="patientForm.get('nationalite')?.hasError('required')">
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-button type="button" (click)="onCancel()">Annuler</button>
+      <button mat-raised-button color="primary" type="submit">Ajouter</button>
+    </div>
+  </form>
+</div>
