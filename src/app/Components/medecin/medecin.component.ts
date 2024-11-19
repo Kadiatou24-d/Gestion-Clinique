@@ -3,46 +3,43 @@ import { MatDialog } from '@angular/material/dialog';
 import { Medecindtos } from '../../Models/Medecin.';
 import { MedecinService } from '../../Services/medecin.service';
 import { AjouterMedecinComponent } from '../ajouter-medecin/ajouter-medecin.component';
-import { SpecialieDtos } from '../../Models/specialite';
 
 @Component({
   selector: 'app-medecin',
   templateUrl: './medecin.component.html',
-  styleUrl: './medecin.component.css'
+  styleUrl: '.medecin.component.css'
 })
 export class MedecinComponent implements OnInit {
-
-  listeMedecin:Medecindtos[]=[]
-  medecin:Medecindtos= {} ; 
-  nationalite:any
+  listeMedecin: Medecindtos[]=[] ;
+  medecin: Medecindtos= {} ; 
   nom: any
   prenom: any
-  sexe:any
   tel:any
- specialite:any
+  nationalite: any
+  sexe: any
+  specialite: any
 
-  constructor(private medecinService: MedecinService, private dialog: MatDialog){}
+  
+
+  constructor(private medecinService : MedecinService, private dialog: MatDialog){}
 
   ngOnInit(): void {
 
-    this.findAllMedcin()
+    this.findAllMedecin()
   }
-  // findAllMedecin() {
-  //   throw new Error('Method not implemented.');
-  // }
 
-findAllMedcin(){
+findAllMedecin(){
   this.medecinService.getMedecin().subscribe((data)=>{
-    this.listeMedecin=data
+    this.listeMedecin= data
     console.log(this.listeMedecin);
     
   })
- }
+
+}
  saveMedecin(){
   
 
  }
- 
 
  openDialog() {
   const dialogRef = this.dialog.open(AjouterMedecinComponent, {
@@ -60,7 +57,6 @@ findAllMedcin(){
  
 
 }
-
 }
 
 

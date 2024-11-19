@@ -10,7 +10,7 @@ import { Patientdtos } from '../../Models/Patient';
   styleUrls: ['./ajouter-patient.component.css']
 })
 export class AjouterPatientComponent implements OnInit {
-  patientForm!: FormGroup; // Utilisation de "!" pour indiquer qu'il sera initialisé plus tard
+  patientForm!: FormGroup; 
   listePatient:Patientdtos[] = [];
 
   constructor(
@@ -20,12 +20,12 @@ export class AjouterPatientComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Initialisation du formulaire réactif avec les champs et les validateurs
+    
     this.patientForm = this.fb.group({
       nom: ['', Validators.required],
       prenom: ['', Validators.required],
-      email: ['', [Validators.required,]], // Validation pour l'email
-      tel: ['', [Validators.required]], // Validation pour téléphone
+      email: ['', [Validators.required,]], 
+      tel: ['', [Validators.required]], 
       sexe: ['', Validators.required],
       nationalite: ['', Validators.required],
     });
@@ -34,14 +34,14 @@ export class AjouterPatientComponent implements OnInit {
 
   onSubmit(): void {
     if (this.patientForm.valid) {
-      console.log(this.patientForm.value); // Log des données pour debug
+      console.log(this.patientForm.value); 
 
-      // Envoi des données via le service
+      
       this.patientService.savePatient(this.patientForm.value).subscribe({
         next: (response) => {
           this.findAllPatient()
           alert('Patient ajouté avec succès!');
-          this.dialogRef.close(response); // Ferme la boîte de dialogue après succès
+          this.dialogRef.close(response); 
          
 
         },
